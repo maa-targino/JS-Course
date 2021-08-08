@@ -1,16 +1,32 @@
-export class Account{
+import { Client } from "./Client.js";
 
-    client;
+export class Account{
     account;
     agency;
 
-    #balance = 0; //private atribute
+    //private atributes
+    _client;
+    _balance; 
+
+    set client(n){
+        if(n instanceof Client){
+            this._client = n;   
+        }
+    }
+
+    get client(){
+        return this._client
+    }
+
+    get balance(){
+        return this._balance
+    }
 
     withdraw(value){
-        if (this.#balance < value){
+        if (this._balance < value){
             return
         }else{
-            this.#balance -= value;
+            this._balance -= value;
             return value;
         }
     }
@@ -19,7 +35,7 @@ export class Account{
         if(value <= 0){
             return;
         }else{
-            this.#balance += value;
+            this._balance += value;
             return value;
         }
     }

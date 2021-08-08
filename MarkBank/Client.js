@@ -1,7 +1,6 @@
 export class Client{
     id;
-    firstName;
-    lastName;
+    name;
     birthdate;
     age;
 }
